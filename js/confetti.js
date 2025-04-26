@@ -1,4 +1,4 @@
-// Confetti animation effect for wedding website
+// Confetti animation effect for wedding website with simplified execution
 
 // Black and white glitter confetti function
 function createDOMConfetti() {
@@ -14,6 +14,12 @@ function createDOMConfetti() {
         '#000000'  // Pure black
     ];
     
+    // Check if container already exists and remove it to prevent duplicates
+    const existingContainer = document.getElementById('dom-confetti-container');
+    if (existingContainer) {
+        existingContainer.remove();
+    }
+    
     const container = document.createElement('div');
     container.style.position = 'fixed';
     container.style.top = '0';
@@ -21,7 +27,7 @@ function createDOMConfetti() {
     container.style.width = '100%';
     container.style.height = '100%';
     container.style.pointerEvents = 'none';
-    container.style.zIndex = '9999';
+    container.style.zIndex = '1'; // Lower z-index so it's behind content
     container.id = 'dom-confetti-container';
     document.body.appendChild(container);
     
@@ -80,18 +86,13 @@ function createDOMConfetti() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Check if we're on the home page (has the main braid animation)
-    const braidPath = document.querySelector('.braid-path');
-    if (!braidPath) return;
+// Trigger confetti right away (only on homepage)
+if (window.location.pathname.endsWith('index.html') || 
+    window.location.pathname === '/' || 
+    window.location.pathname.split('/').pop() === '') {
     
-    console.log("Confetti initialized - Waiting for braid animation to complete");
-    
-    // Add animation end listener to the braid path
-    braidPath.addEventListener('animationend', function(e) {
-        console.log("Animation ended: " + e.animationName);
-        if (e.animationName === 'drawBraid') {
-            setTimeout(createDOMConfetti, 100);
-        }
+    document.addEventListener('DOMContentLoaded', function() {
+        // Short delay before triggering confetti
+        setTimeout(createDOMConfetti, 200);
     });
-});
+}

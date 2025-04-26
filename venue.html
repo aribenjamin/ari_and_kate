@@ -5,45 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Know the Venue - Kate & Ari's Wedding</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/braid.css">
+    <link rel="stylesheet" href="css/accessibility.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
+    
     <div class="container subpage">
         <header>
             <h1 class="subpage-title">Know the Venue</h1>
             <a href="index.html" class="back-home">Kate & Ari</a>
         </header>
         
-        <nav class="braid-nav">
-            <div class="braid-container">
-                <svg class="braid" viewBox="0 0 1000 200" preserveAspectRatio="none">
-                    <path class="braid-path" d="M0,100 C250,90 350,110 500,100 C650,90 750,110 1000,100" />
-                </svg>
-                <div class="nav-points">
-                    <a href="venue.html" class="nav-point active" style="left: 20%;">
-                        <div class="point"></div>
-                        <span>Know the Venue</span>
-                    </a>
-                    <a href="accommodations.html" class="nav-point" style="left: 40%;">
-                        <div class="point"></div>
-                        <span>Accommodations</span>
-                    </a>
-                    <a href="rsvp.html" class="nav-point" style="left: 60%;">
-                        <div class="point"></div>
-                        <span>RSVP</span>
-                    </a>
-                    <a href="schedule.html" class="nav-point" style="left: 80%;">
-                        <div class="point"></div>
-                        <span>Schedule</span>
-                    </a>
-                </div>
-            </div>
+        <nav class="static-nav" aria-label="Main navigation">
+            <ul class="nav-links">
+                <li><a href="venue.html" class="nav-link">Know the Venue</a></li>
+                <li><a href="accommodations.html" class="nav-link">Accommodations</a></li>
+                <li><a href="rsvp.html" class="nav-link">RSVP</a></li>
+                <li><a href="schedule.html" class="nav-link">Schedule</a></li>
+            </ul>
         </nav>
         
-        <div class="content">
+        <main id="main-content" class="content">
             <div class="venue-info">
                 <h2>Ashokan Center</h2>
                 <p>The Ashokan Center is a beautiful venue located in the Catskill Mountains of New York. With its stunning natural surroundings and rustic charm, it's the perfect setting for Kate and Ari's wedding celebration.</p>
@@ -83,7 +68,7 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </main>
         
         <div class="wedding-info">
             <p>Ashokan Center, Oct 17-19, 2025</p>

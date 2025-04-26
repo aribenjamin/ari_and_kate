@@ -1,14 +1,14 @@
-/* Braid Navigation Styles */
+/* Braid Navigation Styles - Elegant Jewel Tone Version */
 .braid-nav {
     width: 100%;
     position: relative;
-    margin: 2rem 0;
+    margin: 3rem 0;
 }
 
 .braid-container {
     position: relative;
     width: 100%;
-    height: 200px;
+    height: 180px;
 }
 
 .braid {
@@ -19,13 +19,13 @@
 .braid-path {
     fill: none;
     stroke: var(--secondary-color);
-    stroke-width: 5;
+    stroke-width: 3;
     stroke-linecap: round;
-    /* Extended animation duration so it's more noticeable */
+    /* Extended animation duration remains as requested */
     animation: drawBraid 2.5s ease-in-out forwards;
-    /* Multiple shadows for a glowing effect */
-    filter: drop-shadow(0 0 2px rgba(78, 205, 196, 0.5)) 
-            drop-shadow(0 0 5px rgba(78, 205, 196, 0.3));
+    /* More subtle, elegant glow */
+    filter: drop-shadow(0 0 1px rgba(12, 79, 74, 0.3)) 
+            drop-shadow(0 0 3px rgba(12, 79, 74, 0.2));
 }
 
 @keyframes drawBraid {
@@ -54,22 +54,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
     z-index: 10;
 }
 
 .nav-point:hover {
-    transform: translate(-50%, -60%);
+    transform: translate(-50%, -58%);
 }
 
 .point {
-    width: 18px;
-    height: 18px;
+    width: 12px;
+    height: 12px;
     background-color: var(--primary-color);
     border-radius: 50%;
-    margin-bottom: 10px;
-    box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin-bottom: 12px;
+    box-shadow: 0 0 8px rgba(79, 14, 57, 0.4);
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .nav-point:nth-child(1) .point {
@@ -81,46 +81,47 @@
 }
 
 .nav-point:nth-child(3) .point {
-    background-color: var(--accent-color);
+    background-color: var(--accent-sapphire);
 }
 
 .nav-point:nth-child(4) .point {
-    background-color: var(--accent-pink);
+    background-color: var(--accent-amethyst);
 }
 
 .nav-point:hover .point {
-    transform: scale(1.3);
-    box-shadow: 0 0 15px rgba(255, 107, 107, 0.8);
+    transform: scale(1.4);
+    box-shadow: 0 0 12px rgba(79, 14, 57, 0.5);
 }
 
 .nav-point span {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 0.95rem;
+    font-weight: 400;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
     color: var(--text-color);
     text-align: center;
     white-space: nowrap;
     transition: all 0.3s ease;
     padding: 5px 10px;
-    border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
 }
 
 .nav-point:hover span {
     color: var(--primary-color);
     background-color: rgba(255, 255, 255, 1);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
     transform: translateY(2px);
 }
 
 /* Subpage Navigation (Flatter Braid) */
 .subpage .braid-container {
-    height: 150px;
+    height: 130px;
 }
 
 .subpage .braid-path {
-    stroke-width: 3;
+    stroke-width: 2;
     d: path("M0,100 C250,90 350,110 500,100 C650,90 750,110 1000,100");
 }
 
@@ -143,12 +144,12 @@
     }
     
     .point {
-        width: 12px;
-        height: 12px;
+        width: 10px;
+        height: 10px;
     }
     
     .subpage .braid-container {
-        height: 120px;
+        height: 110px;
     }
 }
 

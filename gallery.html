@@ -1,4 +1,4 @@
-<!-- Gallery component for venue page -->
+<!-- Gallery component for venue page - Elegant Jewel Tone Version -->
 <div class="gallery-container">
     <div class="gallery-slides">
         <div class="gallery-slide">
@@ -31,16 +31,23 @@
         <button class="gallery-prev" aria-label="Previous photo">❮</button>
         <button class="gallery-next" aria-label="Next photo">❯</button>
     </div>
+    
+    <div class="gallery-indicators">
+        <span class="indicator active"></span>
+        <span class="indicator"></span>
+        <span class="indicator"></span>
+        <span class="indicator"></span>
+    </div>
 </div>
 
 <style>
     .gallery-container {
         position: relative;
         max-width: 800px;
-        margin: 2rem auto;
+        margin: 2.5rem auto;
         overflow: hidden;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 2px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     }
     
     .gallery-slides {
@@ -66,11 +73,14 @@
         bottom: 0;
         left: 0;
         right: 0;
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: rgba(27, 20, 37, 0.75);
         color: white;
-        padding: 10px;
+        padding: 12px;
         text-align: center;
-        font-size: 0.9rem;
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
     }
     
     .gallery-controls {
@@ -80,28 +90,69 @@
         display: flex;
         justify-content: space-between;
         transform: translateY(-50%);
+        padding: 0 15px;
     }
     
     .gallery-prev, .gallery-next {
-        background-color: rgba(255, 255, 255, 0.7);
+        background-color: rgba(255, 255, 255, 0.85);
         border: none;
         color: var(--primary-color);
-        font-size: 1.5rem;
-        padding: 10px 15px;
+        font-size: 1.2rem;
+        width: 40px;
+        height: 40px;
         cursor: pointer;
         border-radius: 50%;
-        margin: 0 10px;
-        transition: background-color 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
     
     .gallery-prev:hover, .gallery-next:hover {
-        background-color: rgba(255, 255, 255, 0.9);
+        background-color: rgba(255, 255, 255, 0.95);
+        transform: scale(1.05);
+    }
+    
+    .gallery-indicators {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+    }
+    
+    .indicator {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        display: block;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .indicator.active {
+        background-color: white;
+        transform: scale(1.2);
     }
     
     @media (max-width: 768px) {
         .gallery-prev, .gallery-next {
-            font-size: 1.2rem;
-            padding: 8px 12px;
+            font-size: 1rem;
+            width: 35px;
+            height: 35px;
+        }
+        
+        .photo-caption {
+            padding: 10px;
+            font-size: 0.85rem;
+        }
+        
+        .indicator {
+            width: 6px;
+            height: 6px;
         }
     }
 </style>

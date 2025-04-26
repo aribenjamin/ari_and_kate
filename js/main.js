@@ -1,87 +1,123 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Position navigation points along the braid path
-    positionNavPoints();
+    // Highlight current page in navigation
+    highlightCurrentPage();
     
     // Add smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
+    setupSmoothScrolling();
+    
+    // Initialize gallery if it exists
+    initializeGallery();
 });
 
-// Function to position navigation points along the SVG path
-function positionNavPoints() {
-    const braidPath = document.querySelector('.braid-path');
-    const navPoints = document.querySelectorAll('.nav-point');
-    const braidContainer = document.querySelector('.braid-container');
+// Function to highlight the current page in navigation
+function highlightCurrentPage() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     
-    if (!braidPath || navPoints.length === 0 || !braidContainer) return;
-    
-    // Get the total length of the path
-    const pathLength = braidPath.getTotalLength ? braidPath.getTotalLength() : 1000;
-    if (!pathLength) return;
-    
-    // Get container dimensions for scaling calculations
-    const containerRect = braidContainer.getBoundingClientRect();
-    const svgRect = braidPath.getBoundingClientRect();
-    
-    // SVG viewBox dimensions (from the SVG element)
-    const svgElement = braidPath.closest('svg');
-    const viewBoxWidth = svgElement ? parseFloat(svgElement.getAttribute('viewBox').split(' ')[2]) : 1000;
-    const viewBoxHeight = svgElement ? parseFloat(svgElement.getAttribute('viewBox').split(' ')[3]) : 200;
-    
-    // Calculate scale factors
-    const scaleX = containerRect.width / viewBoxWidth;
-    const scaleY = containerRect.height / viewBoxHeight;
-    
-    // Position each nav point along the path at specific intervals
-    navPoints.forEach((point, index) => {
-        // Calculate position along the path (evenly spaced)
-        const position = pathLength * (index + 1) / (navPoints.length + 1);
-        
-        // Get the point coordinates at this position
-        if (braidPath.getPointAtLength) {
-            const pointOnPath = braidPath.getPointAtLength(position);
-            
-            // Convert SVG coordinates to page coordinates
-            const x = (pointOnPath.x * scaleX);
-            const y = (pointOnPath.y * scaleY);
-            
-            // Set the point's position as percentage of container width
-            const xPercent = (x / containerRect.width) * 100;
-            point.style.left = `${xPercent}%`;
-            
-            // Set absolute position for y-coordinate
-            point.style.top = `${y+22}px`;
-            
-            // For debugging
-            console.log(`Nav point ${index+1} positioned at SVG(${pointOnPath.x}, ${pointOnPath.y}), Screen(${x}, ${y})`);
+    document.querySelectorAll('.nav-link').forEach(link => {
+        const href = link.getAttribute('href');
+        if ((href === currentPage) || 
+            (currentPage === 'index.html' && href === '/') || 
+            (currentPage === '' && href === '/')) {
+            link.classList.add('active');
         }
     });
 }
 
-// Handle page transitions with a simple fade effect
-window.addEventListener('pageshow', function() {
-    document.body.classList.add('fade-in');
-});
-
-// Add active class to current page nav item
-document.addEventListener('DOMContentLoaded', function() {
-    const currentPage = window.location.pathname.split('/').pop();
-    
-    if (currentPage) {
-        document.querySelectorAll('.nav-point').forEach(link => {
-            if (link.getAttribute('href') === currentPage) {
-                link.classList.add('active');
+// Function to set up smooth scrolling for anchor links
+function setupSmoothScrolling() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
             }
         });
-    } else {
-        // On index page
-        document.querySelector('.nav-point[href="index.html"]')?.classList.add('active');
-    }
-});
+    });
+}
+
+// Gallery initialization for venue page
+function initializeGallery() {
+    const galleryContainers = document.querySelectorAll('.gallery-container');
+    
+    galleryContainers.forEach(gallery => {
+        const slides = gallery.querySelectorAll('.gallery-slide');
+        const prevBtn = gallery.querySelector('.gallery-prev');
+        const nextBtn = gallery.querySelector('.gallery-next');
+        const indicators = gallery.querySelectorAll('.indicator');
+        
+        // Exit if no slides
+        if (!slides.length) return;
+        
+        let currentSlide = 0;
+        
+        // Show first slide initially
+        slides[0].classList.add('active');
+        indicators?.[0]?.classList.add('active');
+        
+        // Add click events to controls
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                showSlide(currentSlide - 1);
+            });
+        }
+        
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                showSlide(currentSlide + 1);
+            });
+        }
+        
+        // Add click events to indicators
+        if (indicators.length) {
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    showSlide(index);
+                });
+            });
+        }
+        
+        // Function to show a specific slide
+        function showSlide(index) {
+            // Handle wrapping around
+            if (index < 0) {
+                index = slides.length - 1;
+            } else if (index >= slides.length) {
+                index = 0;
+            }
+            
+            // Remove active class from current slide
+            slides[currentSlide].classList.remove('active');
+            indicators?.[currentSlide]?.classList.remove('active');
+            
+            // Add active class to new slide
+            slides[index].classList.add('active');
+            indicators?.[index]?.classList.add('active');
+            
+            // Update current slide index
+            currentSlide = index;
+        }
+        
+        // Auto-advance slides every 5 seconds
+        let autoplayInterval = setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+        
+        // Pause autoplay on hover
+        gallery.addEventListener('mouseenter', () => {
+            clearInterval(autoplayInterval);
+        });
+        
+        // Resume autoplay on mouse leave
+        gallery.addEventListener('mouseleave', () => {
+            autoplayInterval = setInterval(() => {
+                showSlide(currentSlide + 1);
+            }, 5000);
+        });
+    });
+}

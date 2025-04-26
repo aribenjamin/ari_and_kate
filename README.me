@@ -1,0 +1,105 @@
+# Kate & Ari's Wedding Website
+
+A static wedding website for Kate and Ari's celebration at the Ashokan Center, October 17-19, 2025. This website is designed to be hosted on GitHub Pages.
+
+## Features
+
+- Responsive design that works on all devices
+- Custom navigation with a curvy braid design
+- Informational pages about the venue, accommodations, and schedule
+- RSVP functionality through an embedded Google Form
+
+## Project Structure
+
+```
+wedding-website/
+├── index.html                  # Landing page
+├── venue.html                  # Know the Venue page
+├── accommodations.html         # Accommodations page
+├── rsvp.html                   # RSVP page with Google form
+├── schedule.html               # Schedule page
+├── css/
+│   ├── style.css               # Main styles
+│   └── braid.css               # Styles for the navigation braid
+├── js/
+│   └── main.js                 # JavaScript for interactive elements
+└── README.md                   # This documentation
+```
+
+## Setup Instructions
+
+### Local Development
+
+1. Clone this repository to your local machine:
+   ```
+   git clone https://github.com/yourusername/wedding-website.git
+   ```
+
+2. Open the files in your favorite code editor.
+
+3. To preview the site locally, you can use any simple web server. For example, with Python:
+   ```
+   # Python 3
+   python -m http.server
+   
+   # Python 2
+   python -m SimpleHTTPServer
+   ```
+
+4. Visit `http://localhost:8000` in your browser to view the site.
+
+### Customization
+
+#### Google Form Integration
+
+To set up the RSVP page with your Google Form:
+
+1. Create a Google Form for your RSVP responses in Google Drive.
+2. Click the "Send" button and select the embed option (</> icon).
+3. Copy the provided iframe code.
+4. Open `rsvp.html` and replace the iframe in the `.google-form` div with your copied code.
+
+#### Content Customization
+
+- Update text content in each HTML file to match your wedding details.
+- Replace placeholder images with your own photos.
+- Customize colors by editing the CSS variables in the `:root` section of `style.css`.
+
+## Deployment on GitHub Pages
+
+1. Create a new repository on GitHub.
+
+2. Initialize your local repository and push to GitHub:
+   ```
+   git init
+   git add .
+   git commit -m "Initial commit"
+   git branch -M main
+   git remote add origin https://github.com/yourusername/wedding-website.git
+   git push -u origin main
+   ```
+
+3. Configure GitHub Pages:
+   - Go to your repository settings on GitHub
+   - Scroll down to the "GitHub Pages" section
+   - Select the "main" branch as the source
+   - Save the settings
+
+4. Your site will be published at `https://yourusername.github.io/wedding-website/`
+
+## Browser Compatibility
+
+This website is designed to work on modern browsers including:
+- Chrome
+- Firefox
+- Safari
+- Edge
+
+## License
+
+This project is free to use and modify for your personal wedding website.
+
+## Credits
+
+- Fonts: Google Fonts (Playfair Display and Montserrat)
+- Icons: (Add credits for any icons you use)

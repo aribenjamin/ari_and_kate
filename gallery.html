@@ -1,0 +1,107 @@
+<!-- Gallery component for venue page -->
+<div class="gallery-container">
+    <div class="gallery-slides">
+        <div class="gallery-slide">
+            <div class="photo-frame">
+                <img src="/api/placeholder/800/500" alt="Ashokan Center Waterfall" class="venue-photo">
+                <div class="photo-caption">The beautiful waterfall at Ashokan Center</div>
+            </div>
+        </div>
+        <div class="gallery-slide">
+            <div class="photo-frame">
+                <img src="/api/placeholder/800/500" alt="Main Hall" class="venue-photo">
+                <div class="photo-caption">The Main Hall where the reception will be held</div>
+            </div>
+        </div>
+        <div class="gallery-slide">
+            <div class="photo-frame">
+                <img src="/api/placeholder/800/500" alt="Ceremony Site" class="venue-photo">
+                <div class="photo-caption">The outdoor ceremony site</div>
+            </div>
+        </div>
+        <div class="gallery-slide">
+            <div class="photo-frame">
+                <img src="/api/placeholder/800/500" alt="Dining Hall" class="venue-photo">
+                <div class="photo-caption">The Dining Hall for our welcome dinner</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="gallery-controls">
+        <button class="gallery-prev" aria-label="Previous photo">❮</button>
+        <button class="gallery-next" aria-label="Next photo">❯</button>
+    </div>
+</div>
+
+<style>
+    .gallery-container {
+        position: relative;
+        max-width: 800px;
+        margin: 2rem auto;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .gallery-slides {
+        width: 100%;
+    }
+    
+    .gallery-slide {
+        width: 100%;
+    }
+    
+    .photo-frame {
+        position: relative;
+    }
+    
+    .venue-photo {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    
+    .photo-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 10px;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+    
+    .gallery-controls {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+    }
+    
+    .gallery-prev, .gallery-next {
+        background-color: rgba(255, 255, 255, 0.7);
+        border: none;
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 50%;
+        margin: 0 10px;
+        transition: background-color 0.3s ease;
+    }
+    
+    .gallery-prev:hover, .gallery-next:hover {
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+    
+    @media (max-width: 768px) {
+        .gallery-prev, .gallery-next {
+            font-size: 1.2rem;
+            padding: 8px 12px;
+        }
+    }
+</style>

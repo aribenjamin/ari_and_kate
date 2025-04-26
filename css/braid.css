@@ -1,0 +1,167 @@
+/* Braid Navigation Styles */
+.braid-nav {
+    width: 100%;
+    position: relative;
+    margin: 2rem 0;
+}
+
+.braid-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+
+.braid {
+    width: 100%;
+    height: 100%;
+}
+
+.braid-path {
+    fill: none;
+    stroke: var(--secondary-color);
+    stroke-width: 5;
+    stroke-linecap: round;
+    /* Extended animation duration so it's more noticeable */
+    animation: drawBraid 2.5s ease-in-out forwards;
+    /* Multiple shadows for a glowing effect */
+    filter: drop-shadow(0 0 2px rgba(78, 205, 196, 0.5)) 
+            drop-shadow(0 0 5px rgba(78, 205, 196, 0.3));
+}
+
+@keyframes drawBraid {
+    0% {
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+    }
+    100% {
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 0;
+    }
+}
+
+.nav-points {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.nav-point {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+    z-index: 10;
+}
+
+.nav-point:hover {
+    transform: translate(-50%, -60%);
+}
+
+.point {
+    width: 18px;
+    height: 18px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-point:nth-child(1) .point {
+    background-color: var(--primary-color);
+}
+
+.nav-point:nth-child(2) .point {
+    background-color: var(--secondary-color);
+}
+
+.nav-point:nth-child(3) .point {
+    background-color: var(--accent-color);
+}
+
+.nav-point:nth-child(4) .point {
+    background-color: var(--accent-pink);
+}
+
+.nav-point:hover .point {
+    transform: scale(1.3);
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.8);
+}
+
+.nav-point span {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    text-align: center;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-point:hover span {
+    color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(2px);
+}
+
+/* Subpage Navigation (Flatter Braid) */
+.subpage .braid-container {
+    height: 150px;
+}
+
+.subpage .braid-path {
+    stroke-width: 3;
+    d: path("M0,100 C250,90 350,110 500,100 C650,90 750,110 1000,100");
+}
+
+.subpage .nav-point {
+    top: 100px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .braid-container {
+        height: 150px;
+    }
+    
+    .nav-point {
+        top: 75px;
+    }
+    
+    .nav-point span {
+        font-size: 0.8rem;
+    }
+    
+    .point {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .subpage .braid-container {
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .braid-container {
+        height: 120px;
+    }
+    
+    .nav-point {
+        top: 60px;
+    }
+    
+    .nav-point span {
+        font-size: 0.7rem;
+    }
+}

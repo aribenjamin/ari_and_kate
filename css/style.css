@@ -172,15 +172,12 @@ header {
 
 /* Decorative dot for active link */
 .nav-link.active::before {
-    content: '';
+    content: '🪩';
     position: absolute;
-    bottom: -10px;
+    bottom: -20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: var(--primary-color);
+    font-size: 14px; /* Adjust emoji size */
 }
 
 /* Elegant divider between sections */
@@ -254,6 +251,13 @@ header {
     margin: 2.5rem 0;
 }
 
+.our-vision {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+    margin: 2.5rem 0;
+}
+
 .detail h3 {
     font-family: 'Playfair Display', serif;
     color: var(--accent-sapphire);
@@ -318,6 +322,14 @@ header {
     letter-spacing: 1px;
 }
 
+.transportation h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+    margin: 1.5rem 0 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
 .accommodation-option ul {
     list-style-type: none;
     padding: 0;
@@ -371,9 +383,8 @@ header {
 
 /* Schedule Page Styles */
 .day {
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(122, 78, 12, 0.2);
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
 }
 
 .day:last-child {

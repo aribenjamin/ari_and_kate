@@ -176,7 +176,7 @@ header {
     position: absolute;
     bottom: -20px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(20%);
     font-size: 14px; /* Adjust emoji size */
 }
 
@@ -339,6 +339,95 @@ header {
     margin-bottom: 2rem;
     padding-left: 1rem;
     border-left: 2px solid var(--accent-color);
+}
+
+/* Room display styling for accommodations page */
+.rooms {
+    margin: 2rem 0;
+}
+
+.room-item {
+    display: grid;
+    grid-template-columns: .8fr 1.7fr;
+    gap: 2rem;
+    margin-bottom: 0rem;
+    padding-bottom: 0rem;
+}
+
+.room-item:last-child {
+    border-bottom: none;
+}
+
+.room-photo {
+    height: 0;
+    padding-top: 10%; /* Creates a 4:3 aspect ratio */
+    padding-bottom: 65%; /* Creates a 4:3 aspect ratio */
+    position: relative;
+  }
+  
+  .room-photo img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+.room-info h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+    margin: 1.5rem 0 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.room-info p {
+    margin-bottom: 1rem;
+}
+
+.room-features {
+    margin-top: 1.5rem;
+}
+
+.room-features ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+}
+
+.room-features li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.room-features li:before {
+    content: "✦";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .room-item {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .room-photo {
+        height: 250px;
+    }
+}
+
+/* full width photo */
+.full-width-photo {
+    width: 100%;
+    height: auto;
+    margin: 2.5rem 0;
+    border-radius: 2px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .transportation h3 {
@@ -579,3 +668,4 @@ button:hover, .button:hover {
         font-size: 1rem;
     }
 }
+

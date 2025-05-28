@@ -123,15 +123,27 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
 /* Dark mode support with jewel tones */
 @media (prefers-color-scheme: dark) {
     :root {
-        --light-color: #1a1a1a;
-        --text-color: #e0e0e0;
-        
-        /* Brightened jewel tones for dark mode visibility */
-        --primary-color: #AA4178;     /* Brighter ruby */
-        --secondary-color: #1A8F8A;   /* Brighter emerald */
-        --accent-color: #C89B40;      /* Brighter amber */
-        --accent-sapphire: #3674C4;   /* Brighter sapphire */
-        --accent-amethyst: #8A46B0;   /* Brighter amethyst */
+    --primary-color: #4F0E39;       /* Deep ruby/burgundy  */ 
+    --secondary-color: #0C4F4A;     /* Rich emerald */
+    --accent-color: #7A4E0C;        /* Topaz/amber */
+    
+    /* Background colors */
+    --light-color: #F8F6F0;         /* Soft ivory */
+    --dark-color: #1B1425;          /* Deep aubergine/navy */
+    
+    /* Text colors */
+    --text-color: #292F36;          /* Dark navy for main text */
+    --text-light: #F8F6F0;          /* Light ivory text */
+    
+    /* Additional jewel accent colors */
+    --accent-sapphire: #0F3D78;     /* Deep sapphire blue */
+    --accent-amethyst: #4A1D66;     /* Rich amethyst purple */
+    --accent-jade: #154734;         /* Deep jade green */
+    
+    /* Success/Alert colors - more sophisticated versions */
+    --success: #154734;             /* Deep jade for success messages */
+    --error: #6E0D25;               /* Deep burgundy for error states */
+    --warning: #7A4E0C;             /* Amber for warnings */
     }
     
     body {

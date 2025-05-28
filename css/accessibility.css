@@ -120,51 +120,6 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
     }
 }
 
-/* Dark mode support with jewel tones */
-@media (prefers-color-scheme: dark) {
-    :root {
-    --primary-color: #4F0E39;       /* Deep ruby/burgundy  */ 
-    --secondary-color: #0C4F4A;     /* Rich emerald */
-    --accent-color: #7A4E0C;        /* Topaz/amber */
-    
-    /* Background colors */
-    --light-color: #F8F6F0;         /* Soft ivory */
-    --dark-color: #1B1425;          /* Deep aubergine/navy */
-    
-    /* Text colors */
-    --text-color: #292F36;          /* Dark navy for main text */
-    --text-light: #F8F6F0;          /* Light ivory text */
-    
-    /* Additional jewel accent colors */
-    --accent-sapphire: #0F3D78;     /* Deep sapphire blue */
-    --accent-amethyst: #4A1D66;     /* Rich amethyst purple */
-    --accent-jade: #154734;         /* Deep jade green */
-    
-    /* Success/Alert colors - more sophisticated versions */
-    --success: #154734;             /* Deep jade for success messages */
-    --error: #6E0D25;               /* Deep burgundy for error states */
-    --warning: #7A4E0C;             /* Amber for warnings */
-    }
-    
-    body {
-        background-color: var(--light-color);
-        color: var(--text-color);
-    }
-    
-    .content {
-        background-color: #2a2a2a;
-    }
-    
-    .photo-placeholder {
-        background-color: #333;
-    }
-    
-    .nav-link span {
-        background-color: rgba(42, 42, 42, 0.9);
-        color: #e0e0e0;
-    }
-}
-
 /* Enhanced mobile responsiveness - duplicate of style.css for redundancy */
 @media (max-width: 480px) {
     .container {
